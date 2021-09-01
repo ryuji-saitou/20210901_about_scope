@@ -1,0 +1,49 @@
+<h6>
+  postモデルに定義し、homesコントローラーで利用したverは
+  <a href="https://d016cd72eed2438b92ea4422f1644e48.vfs.cloud9.us-east-1.amazonaws.com/home">
+    こちら
+  </a>
+</h6>
+
+<p><strong>postモデルに定義し、postsコントローラーで利用</strong></p>
+<p>1.具体的な検索</p>
+<p>scope :search_title_specific, -> { where(title: "Intouchables") }</p>
+<% @posts1.each do |post| %>
+  <li><%= post.title %></li>
+<% end %>
+<br>
+<span>=============================</span>
+<br>
+<p>2.抽象的な検索</p>
+<p>scope :search_title_ambiguous, -> { where("title LIKE ?", "%nt%") }</p>
+<% @posts2.each do |post| %>
+  <li><%= post.title %></li>
+<% end %>
+<br>
+<span>=============================</span>
+<br>
+<p>3.抽象的な検索 + 件数制限(5件のみ)</p>
+<p>scope :search_title_ambiguous, -> { where("title LIKE ?", "%nt%").limit(5) }</p>
+<% @posts3.each do |post| %>
+  <li><%= post.title %></li>
+<% end %>
+<br>
+<span>=============================</span>
+<br>
+<p>4.抽象的な検索 + 件数制限(引数の利用)</p>
+<p>scope :search_title_ambiguous_argument, -> (count){ where("title LIKE ?", "%nt%").limit(count) }</p>
+<% @posts4.each do |post| %>
+  <li><%= post.title %></li>
+<% end %>
+<br>
+<span>=============================</span>
+<br>
+<p>5.抽象的な検索 + 件数制限(引数の利用) + ソート(降順)</p>
+<p>scope :search_title_ambiguous_argument_order, -> (count){ where("title LIKE ?", "%nt%").limit(count).order(id: DESC) }</p>
+<% @posts5.each do |post| %>
+  <li><%= post.title %></li>
+<% end %>
+<br>
+<span>=============================</span>
+<br>
+
