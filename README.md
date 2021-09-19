@@ -1,5 +1,11 @@
 # scopeについての学習
 
+### 結論
+scopeとは<br>
+モデルに 「この名前はこういう処理をする」 というメソッド (scope) を定義することで、<br>
+クエリ(データベースへの命令文)として使用することができる。<br>
+記述例：https://github.com/ryuji-saitou/20210901_about_scope/blob/main/app/models/post.rb
+
 ### 使用しているGem
 - faker ※ランダムな値を入れられるGem
 - gimei ※日本人の名前や住所をランダムで返すGem
